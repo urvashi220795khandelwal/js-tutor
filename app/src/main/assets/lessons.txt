@@ -1,0 +1,1409 @@
+=== LESSON
+id: what-is-programming
+level: Beginner
+title: What is programming?
+--- text
+Programming means giving a computer clear instructions, one step at a time. The computer does exactly what you write, in order, from top to bottom.
+
+In this app you write instructions in the editor, press Run, and see the result straight away.
+--- example
+console.log("Step 1");
+console.log("Step 2");
+--- task
+Add a third line that prints `Step 3`. Press Run to try, then Check.
+--- check
+__logs.length >= 3 && __logs[2] === "Step 3"
+--- hint
+Copy one of the lines and change the number inside the quotes.
+--- solution
+console.log("Step 1");
+console.log("Step 2");
+console.log("Step 3");
+
+=== LESSON
+id: what-is-javascript
+level: Beginner
+title: What is JavaScript?
+--- text
+JavaScript is the language of the web. It runs in every browser, on servers, and inside apps like this one.
+
+JavaScript reads your code line by line. A line that starts with `//` is a comment: a note for humans that the computer ignores.
+--- example
+// This line is ignored
+console.log("JavaScript is running");
+--- task
+Print the text `I am learning JavaScript`.
+--- check
+__logs.indexOf("I am learning JavaScript") >= 0
+--- hint
+Use console.log with the text inside quotes. Spelling and capital letters must match.
+--- solution
+console.log("I am learning JavaScript");
+
+=== LESSON
+id: console-log
+level: Beginner
+title: console.log()
+--- text
+`console.log()` prints a value to the output. Text goes inside quotes. Numbers do not need quotes. You can print several values at once by separating them with commas.
+--- example
+console.log("Hello");
+console.log(7);
+console.log("Score:", 10);
+--- task
+Add a line that prints your age as a number, without quotes.
+--- check
+/console\.log\(\s*\d+\s*\)/.test(__code.replace("console.log(7)", ""))
+--- hint
+A number is written without quotes, like 7 in the example.
+--- solution
+console.log(25);
+
+=== LESSON
+id: variables
+level: Beginner
+title: Variables
+--- text
+A variable is a named place where we can store information. You create one with `let`, give it a name, and use `=` to put a value inside.
+
+Once a value is stored, you can use it by writing the variable's name.
+--- example
+let age = 25;
+console.log(age);
+--- task
+Create a variable called `name` and store your name in it.
+--- check
+typeof name === "string" && name.length > 0
+--- hint
+Start with let name = and then your name inside quotes.
+--- solution
+let name = "Asha";
+console.log(name);
+
+=== LESSON
+id: let
+level: Beginner
+title: let
+--- text
+Variables made with `let` can change. To change one, write its name, then `=`, then the new value.
+
+Do not write `let` a second time. `let` is only for creating the variable.
+--- example
+let score = 0;
+score = 10;
+console.log(score);
+--- task
+Create `lives` with the value 3. On the next line, change it to 2.
+--- check
+typeof lives === "number" && lives === 2 && /lives\s*=\s*3/.test(__code)
+--- hint
+You need two lines: one that starts with let, and one that does not.
+--- solution
+let lives = 3;
+lives = 2;
+console.log(lives);
+
+=== LESSON
+id: const
+level: Beginner
+title: const
+--- text
+`const` creates a variable that can never be reassigned. Use it for values that should stay the same. Trying to change a const causes an error.
+
+A good habit: use `const` by default, and `let` only when the value really needs to change.
+--- example
+const pi = 3.14;
+console.log(pi);
+--- task
+Create a const called `daysInWeek` with the value 7.
+--- check
+typeof daysInWeek === "number" && daysInWeek === 7 && /const\s+daysInWeek/.test(__code)
+--- hint
+It looks just like let, but with the word const.
+--- solution
+const daysInWeek = 7;
+console.log(daysInWeek);
+
+=== LESSON
+id: data-types
+level: Beginner
+title: Data types
+--- text
+Every value has a type. The three basic types are string (text), number, and boolean (true or false).
+
+`typeof` tells you the type of a value.
+--- example
+console.log(typeof "hello");
+console.log(typeof 42);
+console.log(typeof true);
+--- task
+Create three variables: `city` holding a string, `population` holding a number, and `isCapital` holding a boolean.
+--- check
+typeof city === "string" && typeof population === "number" && typeof isCapital === "boolean"
+--- hint
+Strings need quotes. Numbers and true / false do not.
+--- solution
+const city = "Delhi";
+const population = 32000000;
+const isCapital = true;
+
+=== LESSON
+id: strings
+level: Beginner
+title: Strings
+--- text
+A string is text inside quotes. You can join strings with `+`.
+
+`.length` tells you how many characters a string has, and `.toUpperCase()` gives it back in capital letters.
+--- example
+const first = "Asha";
+console.log("Hello " + first);
+console.log(first.length);
+console.log(first.toUpperCase());
+--- task
+Create a variable `greeting` that joins the text `Good morning, ` with the variable `first`.
+--- check
+typeof greeting === "string" && greeting === "Good morning, " + first
+--- hint
+Put + between the quoted text and the variable. Keep the comma and space inside the quotes.
+--- solution
+const greeting = "Good morning, " + first;
+console.log(greeting);
+
+=== LESSON
+id: numbers
+level: Beginner
+title: Numbers
+--- text
+Numbers are written without quotes. Use `+` `-` `*` `/` for maths, and `%` for the remainder after dividing.
+
+Careful: "20" inside quotes is text, not a number. With text, `+` joins instead of adding.
+--- example
+console.log(10 + 5);
+console.log(10 / 4);
+console.log(10 % 3);
+console.log("20" + 5);
+--- task
+Create `total` equal to 150 times 3, plus 50.
+--- check
+typeof total === "number" && total === 500
+--- hint
+The symbol for times is *.
+--- solution
+const total = 150 * 3 + 50;
+console.log(total);
+
+=== LESSON
+id: boolean
+level: Beginner
+title: Boolean
+--- text
+A boolean is either `true` or `false`. Comparisons produce booleans: `>` greater than, `<` less than, `>=` greater or equal, `===` exactly equal, `!==` not equal.
+--- example
+const age = 20;
+console.log(age > 18);
+console.log(age === 21);
+--- task
+Create `isAdult` that is true when `age` is 18 or more. Use a comparison. Do not just type true.
+--- check
+isAdult === true && /isAdult\s*=\s*\(?\s*age\s*(>=\s*18|>\s*17)/.test(__code)
+--- hint
+The comparison for "18 or more" is >= 18.
+--- solution
+const isAdult = age >= 18;
+console.log(isAdult);
+
+=== LESSON
+id: operators
+level: Beginner
+title: Operators
+--- text
+Operators combine values. `&&` means AND: both sides must be true. `||` means OR: at least one side is true. `!` flips true to false. `+=` adds to a variable.
+--- example
+let points = 10;
+points += 5;
+console.log(points);
+console.log(points > 10 && points < 20);
+console.log(!true);
+--- starter
+const hasTicket = true;
+const isOnTime = true;
+// create canEnter below
+--- task
+Create `canEnter` that is true only when `hasTicket` AND `isOnTime` are both true.
+--- check
+canEnter === true && /hasTicket\s*&&\s*isOnTime|isOnTime\s*&&\s*hasTicket/.test(__code)
+--- hint
+Join the two variables with the AND operator.
+--- solution
+const canEnter = hasTicket && isOnTime;
+console.log(canEnter);
+
+=== LESSON
+id: if-else
+level: Beginner
+title: if / else
+--- text
+`if` runs a block of code only when a condition is true. `else` runs when it is false. `else if` checks another condition in between.
+--- example
+const temp = 30;
+if (temp > 25) {
+  console.log("Hot");
+} else {
+  console.log("Cool");
+}
+--- starter
+const marks = 55;
+// write your if / else below
+--- task
+Print `Pass` when `marks` is 40 or more. Otherwise print `Fail`.
+--- check
+__logs.indexOf("Pass") >= 0 && /if\s*\(/.test(__code) && /else/.test(__code)
+--- hint
+The condition goes inside the round brackets: marks >= 40.
+--- solution
+if (marks >= 40) {
+  console.log("Pass");
+} else {
+  console.log("Fail");
+}
+
+=== LESSON
+id: loops
+level: Beginner
+title: Loops
+--- text
+A loop repeats code. A `for` loop has three parts: where to start, when to keep going, and what to change after each round.
+
+A `while` loop repeats as long as its condition is true.
+--- example
+for (let i = 1; i <= 3; i++) {
+  console.log("Round " + i);
+}
+--- starter
+// write your loop here
+--- task
+Print the numbers 1 to 5, one per line, using a loop.
+--- check
+__logs.join(",") === "1,2,3,4,5" && /for|while/.test(__code)
+--- hint
+Start i at 1, keep going while i <= 5, and print i inside the loop.
+--- solution
+for (let i = 1; i <= 5; i++) {
+  console.log(i);
+}
+
+=== LESSON
+id: functions
+level: Beginner
+title: Functions
+--- text
+A function is a reusable block of code with a name. The values you pass in are called parameters. `return` sends a value back to whoever called the function.
+--- example
+function double(n) {
+  return n * 2;
+}
+console.log(double(4));
+--- task
+Write a function `add` that takes two numbers and returns their sum.
+--- check
+typeof add === "function" && add(2, 3) === 5 && add(10, -4) === 6
+--- hint
+Two parameters go inside the brackets, separated by a comma. Do not forget return.
+--- solution
+function add(a, b) {
+  return a + b;
+}
+console.log(add(2, 3));
+
+=== LESSON
+id: arrays
+level: Intermediate
+title: Arrays
+--- text
+An array is an ordered list written in square brackets. Positions start at 0, so the first item is at position 0.
+
+`.length` gives the number of items and `.push()` adds one to the end.
+--- example
+const fruits = ["apple", "mango"];
+fruits.push("banana");
+console.log(fruits[0]);
+console.log(fruits.length);
+--- task
+Create an array `colors` with three colours, then push a fourth one.
+--- check
+Array.isArray(colors) && colors.length === 4 && /colors\.push\(/.test(__code)
+--- hint
+Create the array first with three items, then use colors.push on a new line.
+--- solution
+const colors = ["red", "green", "blue"];
+colors.push("yellow");
+console.log(colors);
+
+=== LESSON
+id: objects
+level: Intermediate
+title: Objects
+--- text
+An object groups related values under names called keys. It is written in curly brackets. Read a value with a dot, and change it the same way.
+--- example
+const user = { name: "Asha", age: 25 };
+console.log(user.name);
+user.age = 26;
+console.log(user);
+--- task
+Create an object `book` with a `title` (a string) and `pages` (a number).
+--- check
+typeof book === "object" && book !== null && typeof book.title === "string" && typeof book.pages === "number"
+--- hint
+Each entry is written key: value, with commas between entries.
+--- solution
+const book = { title: "My Story", pages: 120 };
+console.log(book.title);
+
+=== LESSON
+id: array-methods
+level: Intermediate
+title: Array methods
+--- text
+`map` builds a new array by changing each item. `filter` keeps only the items that pass a test. `forEach` runs code once for each item.
+
+The short function `n => n * 2` means: take n, give back n * 2.
+--- example
+const numbers = [1, 2, 3, 4];
+const doubled = numbers.map(n => n * 2);
+const big = numbers.filter(n => n > 2);
+console.log(doubled);
+console.log(big);
+--- task
+Create `evens` containing only the even numbers from `numbers`. Use filter.
+--- check
+Array.isArray(evens) && evens.join(",") === "2,4" && /\.filter\(/.test(__code)
+--- hint
+A number is even when n % 2 === 0.
+--- solution
+const evens = numbers.filter(n => n % 2 === 0);
+console.log(evens);
+
+=== LESSON
+id: dom
+level: Intermediate
+title: DOM
+--- text
+The DOM is how JavaScript sees a web page: a tree of elements. `document.createElement` makes an element, `textContent` sets its text, and `appendChild` puts it on the page.
+
+In this app the page is hidden, so we print the page's HTML to check our work.
+--- example
+const title = document.createElement("h1");
+title.textContent = "Hello page";
+document.body.appendChild(title);
+console.log(document.body.innerHTML);
+--- task
+Create a `p` element stored in `para`, give it the text `I made this`, and add it to document.body.
+--- check
+para && para.tagName === "P" && para.textContent === "I made this" && document.body.contains(para)
+--- hint
+Follow the same three steps as the example: create, set textContent, appendChild.
+--- solution
+const para = document.createElement("p");
+para.textContent = "I made this";
+document.body.appendChild(para);
+console.log(document.body.innerHTML);
+
+=== LESSON
+id: events
+level: Intermediate
+title: Events
+--- text
+Events let your code react to things like clicks and typing. `addEventListener` registers a function that runs each time the event happens.
+
+There is no visible button here, so we trigger the click ourselves with `.click()`.
+--- example
+const button = document.createElement("button");
+button.addEventListener("click", () => {
+  console.log("Button was clicked");
+});
+button.click();
+--- starter
+const button = document.createElement("button");
+let count = 0;
+// add a click listener that increases count
+
+// then click the button three times
+--- task
+Make each click on the button add 1 to `count`. Then click the button 3 times.
+--- check
+count === 3 && /addEventListener/.test(__code)
+--- hint
+Inside the listener write count += 1. Then call button.click() three times.
+--- solution
+button.addEventListener("click", () => {
+  count += 1;
+});
+button.click();
+button.click();
+button.click();
+console.log(count);
+
+=== LESSON
+id: forms
+level: Intermediate
+title: Forms
+--- text
+Forms collect what the user types. An input's text lives in `.value`, and it is always a string, even when the user types digits.
+
+Always check input before using it. `.trim()` removes spaces from both ends.
+--- example
+const input = document.createElement("input");
+input.value = "  asha@example.com ";
+const email = input.value.trim();
+console.log(email);
+console.log(email.includes("@"));
+--- task
+Write a function `isValidName(text)` that returns true when the trimmed text has at least 2 characters.
+--- check
+typeof isValidName === "function" && isValidName("Al") === true && isValidName("  a ") === false && isValidName("") === false
+--- hint
+Trim first, then compare .length with 2.
+--- solution
+function isValidName(text) {
+  return text.trim().length >= 2;
+}
+console.log(isValidName("Al"));
+
+=== LESSON
+id: json
+level: Intermediate
+title: JSON
+--- text
+JSON is a text format for sending and saving data. It looks like a JavaScript object, but it is just text.
+
+`JSON.stringify` turns a value into JSON text. `JSON.parse` turns JSON text back into a real value.
+--- example
+const user = { name: "Asha", age: 25 };
+const text = JSON.stringify(user);
+console.log(text);
+const copy = JSON.parse(text);
+console.log(copy.name);
+--- starter
+const data = '{"item":"Pen","price":20}';
+// parse data into product, then print the price
+--- task
+The variable `data` holds JSON text. Parse it into `product` and print its price.
+--- check
+typeof product === "object" && product !== null && product.price === 20 && __logs.indexOf("20") >= 0
+--- hint
+JSON.parse(data) gives you an object. Then use a dot to read price.
+--- solution
+const product = JSON.parse(data);
+console.log(product.price);
+
+=== LESSON
+id: apis
+level: Intermediate
+title: APIs
+--- text
+An API lets your code ask another computer for data. `fetch(url)` sends the request and gives back a promise, because the answer takes time to arrive.
+
+This app works offline, so fetch here returns practice data. Try a url containing weather, users, posts or movies.
+--- example
+fetch("https://example.com/weather")
+  .then(response => response.json())
+  .then(data => {
+    console.log(data.city, data.temp);
+  });
+--- task
+Fetch a url containing `users` and print how many users come back (the length of the array).
+--- check
+/fetch\([^)]*users/.test(__code) && /\.length/.test(__code)
+--- hint
+Change the url, and inside the last then print data.length.
+--- solution
+fetch("https://example.com/users")
+  .then(response => response.json())
+  .then(data => {
+    console.log(data.length);
+  });
+
+=== LESSON
+id: promises
+level: Intermediate
+title: Promises
+--- text
+A promise is a value that will arrive later. `.then()` runs when it is ready, and `.catch()` runs if it failed.
+
+Code written after the promise keeps running while you wait.
+--- example
+const wait = new Promise(resolve => {
+  setTimeout(() => resolve("Done waiting"), 500);
+});
+console.log("Started");
+wait.then(message => console.log(message));
+--- task
+Create a promise called `ready` that resolves with the text `Ready`, then print that text using then.
+--- check
+ready instanceof Promise && /resolve\(\s*["'`]Ready["'`]\s*\)/.test(__code)
+--- hint
+Copy the shape of the example. Call resolve("Ready").
+--- solution
+const ready = new Promise(resolve => {
+  resolve("Ready");
+});
+ready.then(message => console.log(message));
+
+=== LESSON
+id: async-await
+level: Intermediate
+title: async / await
+--- text
+`async` and `await` are a cleaner way to work with promises. Inside a function marked `async`, the word `await` pauses until the promise is ready and hands you the result.
+--- example
+async function showWeather() {
+  const response = await fetch("https://example.com/weather");
+  const data = await response.json();
+  console.log(data.city + ": " + data.temp);
+}
+showWeather();
+--- task
+Write an async function `getMovies` that fetches a url containing `movies` and returns the parsed data. Call it and print the result.
+--- check
+typeof getMovies === "function" && /async\s+function\s+getMovies|getMovies\s*=\s*async/.test(__code) && /await/.test(__code)
+--- hint
+Same shape as the example, but return data instead of printing inside.
+--- solution
+async function getMovies() {
+  const response = await fetch("https://example.com/movies");
+  const data = await response.json();
+  return data;
+}
+getMovies().then(data => console.log(data.results.length));
+
+=== LESSON
+id: scope
+level: Advanced
+title: Scope
+--- text
+Scope means where a variable can be seen. Variables made with let or const inside curly brackets exist only inside those brackets.
+
+Inner code can see outer variables, but outer code cannot see inner ones.
+--- example
+const outside = "I am outside";
+if (true) {
+  const inside = "I am inside";
+  console.log(outside);
+  console.log(inside);
+}
+--- starter
+if (true) {
+  const message = "Hello";
+}
+console.log(message);
+--- task
+This code fails because `message` is created inside the block. Fix it so the last line prints Hello.
+--- check
+__logs.indexOf("Hello") >= 0
+--- hint
+Create the variable before the block with let, then give it its value inside the block.
+--- solution
+let message;
+if (true) {
+  message = "Hello";
+}
+console.log(message);
+
+=== LESSON
+id: closures
+level: Advanced
+title: Closures
+--- text
+A closure is a function that remembers the variables from the place where it was created, even after that place has finished running.
+
+This is how a function can keep private data.
+--- example
+function makeCounter() {
+  let count = 0;
+  return function () {
+    count += 1;
+    return count;
+  };
+}
+const next = makeCounter();
+console.log(next());
+console.log(next());
+--- task
+Write `makeGreeter(greeting)` that returns a function. That function takes a name and returns the greeting, a space, and the name.
+--- check
+typeof makeGreeter === "function" && makeGreeter("Hi")("Asha") === "Hi Asha"
+--- hint
+The inner function can use greeting even though it belongs to the outer function.
+--- solution
+function makeGreeter(greeting) {
+  return function (name) {
+    return greeting + " " + name;
+  };
+}
+console.log(makeGreeter("Hi")("Asha"));
+
+=== LESSON
+id: this
+level: Advanced
+title: this
+--- text
+Inside an object's method, `this` means the object the method was called on.
+
+Arrow functions do not have their own this, so use the normal method style shown here.
+--- example
+const user = {
+  name: "Asha",
+  greet() {
+    console.log("Hi, I am " + this.name);
+  }
+};
+user.greet();
+--- starter
+const car = {
+  brand: "Tata"
+  // add a comma above, then write describe() here
+};
+--- task
+Add a method `describe` to `car` that returns the text `This is a ` joined with this.brand.
+--- check
+typeof car === "object" && typeof car.describe === "function" && car.describe() === "This is a " + car.brand && /this\.brand/.test(__code)
+--- hint
+Methods are written name() { ... } inside the object. Use return, and this.brand.
+--- solution
+const car = {
+  brand: "Tata",
+  describe() {
+    return "This is a " + this.brand;
+  }
+};
+console.log(car.describe());
+
+=== LESSON
+id: prototypes
+level: Advanced
+title: Prototypes
+--- text
+Every object has a hidden link to another object called its prototype. When a property is not found on the object, JavaScript looks in the prototype.
+
+That is how every array can use push and map without having its own copy.
+--- example
+const animal = {
+  speak() {
+    console.log(this.name + " makes a sound");
+  }
+};
+const dog = Object.create(animal);
+dog.name = "Bruno";
+dog.speak();
+console.log(Object.getPrototypeOf(dog) === animal);
+--- task
+Create `cat` from `animal` using Object.create, give it a name, and make it speak.
+--- check
+typeof cat === "object" && Object.getPrototypeOf(cat) === animal && typeof cat.name === "string"
+--- hint
+Do for cat exactly what the example does for dog.
+--- solution
+const cat = Object.create(animal);
+cat.name = "Mini";
+cat.speak();
+
+=== LESSON
+id: classes
+level: Advanced
+title: Classes
+--- text
+A class is a blueprint for making objects. The `constructor` runs when you write `new`. Methods written in the class are shared by every object made from it.
+--- example
+class User {
+  constructor(name) {
+    this.name = name;
+  }
+  greet() {
+    return "Hi, " + this.name;
+  }
+}
+const u = new User("Asha");
+console.log(u.greet());
+--- task
+Create a class `Rectangle` that stores width and height, with an `area()` method that returns width times height.
+--- check
+typeof Rectangle === "function" && new Rectangle(3, 4).area() === 12
+--- hint
+Save both values on this inside the constructor, then use them in area().
+--- solution
+class Rectangle {
+  constructor(width, height) {
+    this.width = width;
+    this.height = height;
+  }
+  area() {
+    return this.width * this.height;
+  }
+}
+console.log(new Rectangle(3, 4).area());
+
+=== LESSON
+id: modules
+level: Advanced
+title: Modules
+--- text
+Modules split code across files. `export` shares something from a file and `import` uses it in another file.
+
+This editor is a single file, so import cannot run here. The idea, small pieces with a clear public part, can be practised with an object.
+--- example
+// math.js
+// export function add(a, b) { return a + b; }
+
+// app.js
+// import { add } from "./math.js";
+
+const mathTools = {
+  add(a, b) {
+    return a + b;
+  }
+};
+console.log(mathTools.add(2, 3));
+--- task
+Add a `multiply` function to mathTools and use it.
+--- check
+typeof mathTools.multiply === "function" && mathTools.multiply(3, 4) === 12
+--- hint
+Add a comma after the add method, then write multiply the same way.
+--- solution
+const mathTools = {
+  add(a, b) {
+    return a + b;
+  },
+  multiply(a, b) {
+    return a * b;
+  }
+};
+console.log(mathTools.multiply(3, 4));
+
+=== LESSON
+id: event-loop
+level: Advanced
+title: Event loop
+--- text
+JavaScript does one thing at a time. Tasks that wait, like timers and network requests, are placed in a queue and run only after the current code has finished.
+
+So a setTimeout of 0 still runs after the lines below it.
+--- example
+console.log("1 - first");
+setTimeout(() => console.log("3 - timer"), 0);
+console.log("2 - second");
+--- starter
+// write three lines
+--- task
+First print `A`. On the second line use setTimeout to print `C`. On the last line print `B`. Predict the order before you run it.
+--- check
+__logs.join("") === "AB" && /setTimeout/.test(__code)
+--- hint
+The timer line is written second but runs last.
+--- solution
+console.log("A");
+setTimeout(() => console.log("C"), 0);
+console.log("B");
+
+=== LESSON
+id: error-handling
+level: Advanced
+title: Error handling
+--- text
+`try` runs code that might fail. If it fails, `catch` runs instead of the program crashing. `throw new Error("...")` reports a problem on purpose.
+--- example
+try {
+  const data = JSON.parse("not json");
+  console.log(data);
+} catch (error) {
+  console.log("Could not read the data");
+  console.log(error.message);
+}
+console.log("The program keeps running");
+--- task
+Write `safeDivide(a, b)`. When b is 0 it must throw an Error with the message `Cannot divide by zero`. Otherwise it returns a / b.
+--- check
+typeof safeDivide === "function" && safeDivide(10, 2) === 5 && (function () { try { safeDivide(1, 0); return false; } catch (e) { return e instanceof Error && e.message === "Cannot divide by zero"; } })()
+--- hint
+Check b with an if at the top of the function and throw there.
+--- solution
+function safeDivide(a, b) {
+  if (b === 0) {
+    throw new Error("Cannot divide by zero");
+  }
+  return a / b;
+}
+console.log(safeDivide(10, 2));
+
+=== LESSON
+id: debugging
+level: Advanced
+title: Debugging
+--- text
+Debugging means finding out why code does not do what you expected. Read the error, find the line, print the values with console.log, and change one thing at a time.
+
+Code with no error message can still be wrong.
+--- example
+function average(a, b) {
+  return a + b / 2;
+}
+console.log(average(10, 20));
+--- task
+The average of 10 and 20 should be 15, but this prints 20. Find the bug and fix it.
+--- check
+typeof average === "function" && average(10, 20) === 15 && average(2, 4) === 3
+--- hint
+Division happens before addition. Brackets change the order.
+--- solution
+function average(a, b) {
+  return (a + b) / 2;
+}
+console.log(average(10, 20));
+
+=== LESSON
+id: performance
+level: Advanced
+title: Performance
+--- text
+Fast code avoids doing the same work again and again. Measure before you guess: `performance.now()` gives the current time in milliseconds.
+
+Often the biggest win is a smarter idea, not a faster loop.
+--- example
+const start = performance.now();
+let total = 0;
+for (let i = 1; i <= 100000; i++) {
+  total += i;
+}
+console.log(total);
+console.log("Took " + Math.round(performance.now() - start) + " ms");
+--- starter
+// write sumTo here, without a loop
+--- task
+Write `sumTo(n)` that returns 1 + 2 + ... + n without any loop, using the formula n * (n + 1) / 2.
+--- check
+typeof sumTo === "function" && sumTo(100) === 5050 && sumTo(1000000) === 500000500000 && !/\b(for|while)\b/.test(__code.replace(/\/\/.*/g, ""))
+--- hint
+The whole function body is one return line.
+--- solution
+function sumTo(n) {
+  return n * (n + 1) / 2;
+}
+console.log(sumTo(100));
+
+=== LESSON
+id: npm
+level: Professional
+title: npm
+--- text
+npm is the package manager for JavaScript. A package is ready-made code written by someone else. The file package.json lists the packages your project uses.
+
+On a computer you would run commands like npm init -y and npm install lodash. Here we practise with the package.json data itself.
+--- example
+const packageJson = {
+  name: "my-app",
+  version: "1.0.0",
+  dependencies: { express: "^4.19.0" }
+};
+console.log(Object.keys(packageJson.dependencies));
+--- task
+Add a dependency called `lodash` with any version text to packageJson.dependencies.
+--- check
+typeof packageJson.dependencies.lodash === "string"
+--- hint
+You can add a key to an object with a dot and =.
+--- solution
+packageJson.dependencies.lodash = "^4.17.21";
+console.log(Object.keys(packageJson.dependencies));
+
+=== LESSON
+id: nodejs
+level: Professional
+title: Node.js
+--- text
+Node.js runs JavaScript outside the browser, for example on servers. There is no document there. Instead you get files and the network.
+
+A server is basically a function: it receives a request and returns a response.
+--- example
+function handleRequest(request) {
+  if (request.url === "/") {
+    return { status: 200, body: "Welcome" };
+  }
+  return { status: 404, body: "Not found" };
+}
+console.log(handleRequest({ url: "/" }));
+console.log(handleRequest({ url: "/xyz" }));
+--- task
+Make handleRequest return status 200 and the body `About us` for the url `/about`.
+--- check
+handleRequest({ url: "/about" }).status === 200 && handleRequest({ url: "/about" }).body === "About us" && handleRequest({ url: "/zzz" }).status === 404
+--- hint
+Add another if before the final return.
+--- solution
+function handleRequest(request) {
+  if (request.url === "/") {
+    return { status: 200, body: "Welcome" };
+  }
+  if (request.url === "/about") {
+    return { status: 200, body: "About us" };
+  }
+  return { status: 404, body: "Not found" };
+}
+console.log(handleRequest({ url: "/about" }));
+
+=== LESSON
+id: git
+level: Professional
+title: Git / GitHub
+--- text
+Git saves snapshots of your project called commits, so you can always go back. GitHub stores those commits online and lets people work together.
+
+The daily commands are git add, git commit -m "message" and git push. A good commit message says what changed.
+--- example
+const commits = [
+  { id: 1, message: "Add login page" },
+  { id: 2, message: "Fix password check" }
+];
+commits.forEach(c => console.log(c.id + ": " + c.message));
+--- task
+Push a third commit object with id 3 and a clear message of your own.
+--- check
+commits.length === 3 && commits[2].id === 3 && typeof commits[2].message === "string" && commits[2].message.length > 5
+--- hint
+commits.push takes an object with id and message.
+--- solution
+commits.push({ id: 3, message: "Add logout button" });
+commits.forEach(c => console.log(c.id + ": " + c.message));
+
+=== LESSON
+id: testing
+level: Professional
+title: Testing
+--- text
+A test is code that checks other code. You give a known input and compare the result with what you expect. Tools such as Jest do this for thousands of tests.
+--- example
+function add(a, b) {
+  return a + b;
+}
+function test(name, actual, expected) {
+  console.log((actual === expected ? "PASS" : "FAIL") + " - " + name);
+}
+test("adds 2 and 3", add(2, 3), 5);
+--- task
+Write `isEven(n)` and add two tests for it using the test function. All tests must pass.
+--- check
+typeof isEven === "function" && isEven(4) === true && isEven(7) === false && __logs.filter(function (x) { return x.indexOf("PASS") === 0; }).length >= 3 && __logs.every(function (x) { return x.indexOf("FAIL") !== 0; })
+--- hint
+Test one even number expecting true, and one odd number expecting false.
+--- solution
+function isEven(n) {
+  return n % 2 === 0;
+}
+test("4 is even", isEven(4), true);
+test("7 is not even", isEven(7), false);
+
+=== LESSON
+id: clean-code
+level: Professional
+title: Clean code
+--- text
+Clean code is easy for the next person to read, and that person is often you. Use clear names, small functions that do one thing, and named constants instead of mystery numbers.
+--- example
+// Hard to read
+function c(a, b) {
+  return a * b * 0.18;
+}
+
+// Clear
+const TAX_RATE = 0.18;
+function calculateTax(price, quantity) {
+  return price * quantity * TAX_RATE;
+}
+console.log(calculateTax(100, 2));
+--- starter
+function f(x) {
+  return x * 60;
+}
+--- task
+Rewrite this as `minutesToSeconds(minutes)` using a constant called `SECONDS_PER_MINUTE`.
+--- check
+typeof minutesToSeconds === "function" && minutesToSeconds(2) === 120 && typeof SECONDS_PER_MINUTE === "number" && SECONDS_PER_MINUTE === 60
+--- hint
+Create the constant first, then use its name instead of 60.
+--- solution
+const SECONDS_PER_MINUTE = 60;
+function minutesToSeconds(minutes) {
+  return minutes * SECONDS_PER_MINUTE;
+}
+console.log(minutesToSeconds(2));
+
+=== LESSON
+id: security
+level: Professional
+title: Security
+--- text
+Never trust input. If user text is placed into a page as HTML, an attacker can make it run their own script. Use textContent instead of innerHTML for user text.
+
+Also never put passwords or secret keys in your code.
+--- example
+const userInput = "<img src=x onerror=alert(1)>";
+const safe = document.createElement("p");
+safe.textContent = userInput;
+console.log(safe.innerHTML);
+--- task
+Write `escapeHtml(text)` that replaces every `<` with `&lt;` and every `>` with `&gt;`.
+--- check
+typeof escapeHtml === "function" && escapeHtml("<b>hi</b>") === "&lt;b&gt;hi&lt;/b&gt;"
+--- hint
+text.replace(/</g, "&lt;") replaces every < in the text. Do the same for >.
+--- solution
+function escapeHtml(text) {
+  return text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+console.log(escapeHtml("<b>hi</b>"));
+
+=== LESSON
+id: typescript
+level: Professional
+title: TypeScript basics
+--- text
+TypeScript is JavaScript plus types. You write things like age: number, and a tool warns you before the code runs if you mix types up. It is then turned into normal JavaScript.
+
+This editor runs plain JavaScript, so here we check types by hand to feel what TypeScript does for you.
+--- example
+// TypeScript: function add(a: number, b: number): number
+function add(a, b) {
+  if (typeof a !== "number" || typeof b !== "number") {
+    throw new TypeError("add needs two numbers");
+  }
+  return a + b;
+}
+console.log(add(2, 3));
+--- task
+Write `greet(name)` that throws a TypeError when name is not a string, and otherwise returns `Hello ` joined with the name.
+--- check
+typeof greet === "function" && greet("Asha") === "Hello Asha" && (function () { try { greet(5); return false; } catch (e) { return e instanceof TypeError; } })()
+--- hint
+Check typeof name !== "string" first, and throw new TypeError there.
+--- solution
+function greet(name) {
+  if (typeof name !== "string") {
+    throw new TypeError("name must be a string");
+  }
+  return "Hello " + name;
+}
+console.log(greet("Asha"));
+
+=== LESSON
+id: react
+level: Professional
+title: React basics
+--- text
+React builds screens from components: functions that take data called props and return what to show. When the data changes, React redraws the component.
+
+Real React uses JSX and a build tool. Here we imitate a component with a function that returns HTML text.
+--- example
+function Welcome(props) {
+  return "<h1>Hello, " + props.name + "</h1>";
+}
+console.log(Welcome({ name: "Asha" }));
+--- task
+Write a component `Counter(props)` that returns `<p>Count: N</p>` where N is props.count.
+--- check
+typeof Counter === "function" && Counter({ count: 3 }) === "<p>Count: 3</p>"
+--- hint
+Join three pieces with +: the opening text, props.count, and the closing tag.
+--- solution
+function Counter(props) {
+  return "<p>Count: " + props.count + "</p>";
+}
+console.log(Counter({ count: 3 }));
+
+=== LESSON
+id: real-world
+level: Professional
+title: Real-world projects
+--- text
+Real projects combine everything: data in arrays and objects, small functions, and error handling. Break the work into small steps, build one, test it, and repeat.
+
+After this lesson, open the Projects tab and build something of your own.
+--- example
+const cart = [
+  { name: "Pen", price: 20, qty: 3 },
+  { name: "Book", price: 150, qty: 1 }
+];
+function cartTotal(items) {
+  return items.reduce((sum, item) => sum + item.price * item.qty, 0);
+}
+console.log(cartTotal(cart));
+--- task
+Write `mostExpensive(items)` that returns the name of the item with the highest price.
+--- check
+typeof mostExpensive === "function" && mostExpensive([{ name: "a", price: 5 }, { name: "b", price: 9 }, { name: "c", price: 2 }]) === "b"
+--- hint
+Keep a variable for the best item so far and loop through the items, replacing it when you find a higher price.
+--- solution
+function mostExpensive(items) {
+  let best = items[0];
+  for (const item of items) {
+    if (item.price > best.price) {
+      best = item;
+    }
+  }
+  return best.name;
+}
+console.log(mostExpensive(cart));
+
+=== PROJECT
+id: p-calculator
+level: Beginner
+title: Calculator
+--- text
+Build a calculator function. You will practise functions, parameters, if / else and return.
+--- steps
+Write `calculate(a, operator, b)` that handles "+" first.
+Add "-", "*" and "/" with else if.
+Return the text "Cannot divide by zero" when dividing by 0.
+Return "Unknown operator" for anything else.
+Test every case with console.log.
+--- starter
+function calculate(a, operator, b) {
+  // TODO: handle "+", "-", "*", "/"
+}
+
+console.log(calculate(6, "+", 3));
+console.log(calculate(6, "/", 0));
+--- hint
+Start with one if (operator === "+") and make that work before adding the others.
+
+=== PROJECT
+id: p-guess
+level: Beginner
+title: Number Guessing Game
+--- text
+The computer picks a secret number and tells the player whether each guess is too high or too low. You will practise random numbers, comparisons and counting.
+--- steps
+Create `secret` with Math.floor(Math.random() * 10) + 1.
+Write `guess(n)` that prints "Too high", "Too low" or "Correct!".
+Count the attempts in a variable and print the count when the guess is correct.
+Play by calling guess several times.
+--- starter
+const secret = Math.floor(Math.random() * 10) + 1;
+let attempts = 0;
+
+function guess(n) {
+  // TODO: count the attempt and compare n with secret
+}
+
+guess(5);
+--- hint
+Math.random() gives a number from 0 up to 1. Multiplying by 10 and rounding down gives 0 to 9, so add 1.
+
+=== PROJECT
+id: p-counter
+level: Beginner
+title: Counter
+--- text
+Build a counter that can go up, go down and reset. You will practise let, functions and updating a value.
+--- steps
+Create `count` starting at 0.
+Write `increase()`, `decrease()` and `reset()`.
+Do not let the counter go below 0.
+Write `show()` that prints the current count, and call it after each change.
+--- starter
+let count = 0;
+
+function increase() {
+  // TODO
+}
+
+function show() {
+  console.log("Count: " + count);
+}
+
+increase();
+show();
+--- hint
+decrease needs an if, so it only subtracts when count is greater than 0.
+
+=== PROJECT
+id: p-todo
+level: Beginner
+title: To-Do List
+--- text
+Build a list of tasks you can add to, complete and print. You will practise arrays, objects and loops.
+--- steps
+Keep tasks in an array of objects shaped like { text, done }.
+Write `addTask(text)` that pushes a new task with done set to false.
+Write `completeTask(index)` that sets done to true.
+Write `showTasks()` that prints each task with [x] or [ ] in front.
+Add `removeTask(index)` using splice.
+--- starter
+const tasks = [];
+
+function addTask(text) {
+  // TODO: push { text: text, done: false }
+}
+
+function showTasks() {
+  // TODO: loop and print each task
+}
+
+addTask("Learn arrays");
+addTask("Build a project");
+showTasks();
+--- hint
+Inside showTasks, use forEach and choose the mark with task.done ? "[x]" : "[ ]".
+
+=== PROJECT
+id: p-quiz
+level: Intermediate
+title: Quiz App
+--- text
+Build a quiz that checks answers and keeps score. You will practise arrays of objects, loops and comparing values.
+--- steps
+Store questions as objects with `question`, `options` and `answer`.
+Write `ask(index)` that prints the question and its options.
+Write `answer(index, choice)` that checks the choice and updates `score`.
+Write `result()` that prints the score out of the total.
+Add at least three questions of your own.
+--- starter
+const questions = [
+  { question: "Which keyword creates a constant?", options: ["let", "const", "var"], answer: "const" }
+];
+let score = 0;
+
+function answer(index, choice) {
+  // TODO: compare choice with questions[index].answer
+}
+
+answer(0, "const");
+console.log("Score: " + score);
+--- hint
+questions[index].answer === choice tells you if the answer was right.
+
+=== PROJECT
+id: p-expense
+level: Intermediate
+title: Expense Tracker
+--- text
+Track spending and see where the money goes. You will practise array methods such as filter and reduce, and working with objects.
+--- steps
+Keep expenses as objects with `title`, `amount` and `category`.
+Write `addExpense(title, amount, category)`. Reject amounts that are not positive numbers.
+Write `total()` using reduce.
+Write `totalFor(category)` using filter and reduce.
+Print a short report with the total and the biggest expense.
+--- starter
+const expenses = [];
+
+function addExpense(title, amount, category) {
+  // TODO: validate amount, then push
+}
+
+function total() {
+  // TODO: use reduce
+}
+
+addExpense("Tea", 20, "food");
+addExpense("Bus", 35, "travel");
+console.log(total());
+--- hint
+reduce((sum, e) => sum + e.amount, 0) adds every amount, starting from 0.
+
+=== PROJECT
+id: p-weather
+level: Intermediate
+title: Weather App
+--- text
+Load weather data and show it nicely. This app's practice server answers any url containing weather, and reads a city from ?city=Name. You will practise fetch, async / await and error handling.
+--- steps
+Write an async function `getWeather(city)` that fetches the data and returns it.
+Write `describe(data)` that returns a sentence such as "Delhi: 31 degrees, Sunny".
+Add advice: "Carry water" above 30 degrees, otherwise "Nice day".
+Wrap the fetch in try / catch and test it with a url containing offline.
+--- starter
+async function getWeather(city) {
+  const response = await fetch("https://example.com/weather?city=" + city);
+  // TODO: turn the response into data and return it
+}
+
+getWeather("Mumbai").then(data => console.log(data));
+--- hint
+response.json() also returns a promise, so it needs await too.
+
+=== PROJECT
+id: p-movies
+level: Advanced
+title: Movie Search App
+--- text
+Search a list of movies and show sorted results. The practice server answers urls containing movies, and filters with ?q=word. You will practise async code, sorting and formatting output.
+--- steps
+Write async `searchMovies(term)` that returns the results array.
+Print each movie as "Title (year) - rating".
+Sort the results by rating, highest first.
+Print "No movies found" when the array is empty.
+Remember results in an object so the same search is not fetched twice.
+--- starter
+async function searchMovies(term) {
+  const response = await fetch("https://example.com/movies?q=" + term);
+  const data = await response.json();
+  // TODO: return the results array
+}
+
+searchMovies("in").then(list => console.log(list));
+--- hint
+The array is inside data.results. sort((a, b) => b.rating - a.rating) puts the highest rating first.
+
+=== PROJECT
+id: p-chat
+level: Advanced
+title: Chat App
+--- text
+Build the logic of a chat: messages, senders, and a bot that replies after a short delay. You will practise classes, timers and working with arrays over time.
+--- steps
+Create a class `Chat` with a `messages` array.
+Add `send(sender, text)` that stores the message with the time and prints it.
+Add a bot: after you send a message, it replies half a second later using setTimeout.
+Make the bot answer differently when the text contains "hello" or "bye".
+Add `history()` that prints every message in order.
+--- starter
+class Chat {
+  constructor() {
+    this.messages = [];
+  }
+  send(sender, text) {
+    // TODO: push the message and print it
+  }
+}
+
+const chat = new Chat();
+chat.send("You", "hello");
+--- hint
+Inside setTimeout use an arrow function, so that this still means the chat.
+
+=== PROJECT
+id: p-api
+level: Advanced
+title: API-based application
+--- text
+Combine two sets of data from the practice server: users and posts. You will practise Promise.all, joining data and building a small report.
+--- steps
+Fetch users and posts at the same time with Promise.all.
+For each user, find their posts using filter and userId.
+Print each user's name with the number of posts and total likes.
+Find the user with the most likes.
+Handle failure with try / catch and show a friendly message.
+--- starter
+async function loadReport() {
+  const [usersRes, postsRes] = await Promise.all([
+    fetch("https://example.com/users"),
+    fetch("https://example.com/posts")
+  ]);
+  // TODO: read both as json, then build the report
+}
+
+loadReport();
+--- hint
+posts.filter(p => p.userId === user.id) gives the posts of one user.
